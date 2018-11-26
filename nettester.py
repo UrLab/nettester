@@ -7,13 +7,14 @@ def init():
 	"""
 	gpio.setmode(gpio.BCM)
 	gpio.setup(2,gpio.IN)
+	gpio.setup(3,gpio.IN)
 	gpio.setup(4,gpio.OUT)
 	gpio.setup(14,gpio.OUT)
 	gpio.setup(15,gpio.OUT)
 	gpio.setup(17,gpio.OUT)
 	gpio.setup(18,gpio.OUT)
 	animation(0.1)
-	for i in range(3)
+	for i in range(3):
 		animation(0)
 		time.sleep(0.1)
 
@@ -32,7 +33,7 @@ def animation(duration):
 
 	if duration==0:
 		time.sleep(0.1)
-		
+
 	gpio.output(4,0)
 	time.sleep(duration)
 	gpio.output(14,0)
