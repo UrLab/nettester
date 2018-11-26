@@ -46,7 +46,7 @@ def animation(duration):
 	time.sleep(duration)
 
 def main():
-	init():
+	init()
 
 
 if __name__ == '__main__':
