@@ -10,6 +10,7 @@ It was designed to run on a raspberry pi 3 B+.
 ## GPIO pins layout :
 
 * pin 2 : input
+* pin 3 : reset
 * pin 4 : DNS
 * pin 14 : LAN
 * pin 15 : DHCP
