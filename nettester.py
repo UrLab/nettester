@@ -54,9 +54,9 @@ def check():
 def main():
 	init()
 	while True:
-		if gpio.input(2) == 1:
+		if gpio.input(2) == 0:
 			check()
-		animation(0,1)
+		animation(0.1)
 
 
 if __name__ == '__main__':
