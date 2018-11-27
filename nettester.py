@@ -46,6 +46,10 @@ def animation(duration):
 	time.sleep(duration)
 
 def check():
+	print("il rentre bien dans la boucle")
+	while True:
+		if gpio.input(3)==0:
+			break
 
 def main():
 	init()
