@@ -42,7 +42,7 @@ def animation(duration):
 	time.sleep(duration)
 	gpio.output(17,0)
 	time.sleep(duration)
-	gpio.output(18,0)	
+	gpio.output(18,0)
 	time.sleep(duration)
 
 def check():
@@ -68,9 +68,9 @@ def check():
 		#test if internet&tinc are available
 		led_to_turn_on.append(18)
 		animation(0.01)
-"""
+	"""
 	DHCP check need to be written (not in a hurry as long as we are using dnsmasq)
-"""
+	"""
 	for i in range(len(led_to_turn_on)):
 		gpio.output(led_to_turn_on[i],1)
 
