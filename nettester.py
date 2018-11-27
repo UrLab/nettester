@@ -71,6 +71,7 @@ def check():
 	"""
 	DHCP check need to be written (not in a hurry as long as we are using dnsmasq)
 	"""
+	animation(0)
 	for i in range(len(led_to_turn_on)):
 		gpio.output(led_to_turn_on[i],1)
 
