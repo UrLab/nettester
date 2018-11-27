@@ -8,6 +8,7 @@ It was designed to run on a raspberry pi 3 B+.
 * python 3
 
 ## GPIO pins layout :
+![alt text](https://www.raspberrypi.org/documentation/usage/gpio/images/gpio-numbers-pi2.png "Raspi GPIO")
 
 * pin 2 : input
 * pin 3 : reset
