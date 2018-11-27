@@ -50,23 +50,27 @@ def check():
 	if subprocess.check_output("host balrog.lan", shell=True)!=b'balrog.lan has address 172.23.42.254\n':
 		#test for DNS
 		led_to_turn_on.append(4)
+		animation(0.01)
+		#We can add DHCP if the dns crashes because it's the same program
+		led_to_turn_on.append(15)
 
 	if os.system("ping 172.23.42.254 -c 1 -A")!=0 and os.system("ping 172.23.42.201")!=0:
 		#test if lan is up
 		led_to_turn_on.append(14)
+		animation(0.01)
 
 	if subprocess.check_output("iwlist wlan0 scan | grep UrLab", shell=True)!=b'                    ESSID:"UrLab"\n':
 		#test if UrLab SSID is available
 		led_to_turn_on.append(17)
+		animation(0.01)
 
 	if os.system("ping 172.23.218.248 -c 1 -A")!=0 and os.system("ping 1.1.1.1 -c 1 -A")!=0:
 		#test if internet&tinc are available
 		led_to_turn_on.append(18)
-
-	if len(led_to_turn_on)<1:
-		#then it's probably DHCP or the client that has a problem
-		led_to_turn_on.append(15)
-
+		animation(0.01)
+"""
+	DHCP check need to be written (not in a hurry as long as we are using dnsmasq)
+"""
 	for i in range(len(led_to_turn_on)):
 		gpio.output(led_to_turn_on[i],1)
 
