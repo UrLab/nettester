@@ -1,5 +1,5 @@
 import RPi.GPIO as gpio
-import time
+import time, subprocess, os
 
 def init():
 	"""
@@ -46,7 +46,30 @@ def animation(duration):
 	time.sleep(duration)
 
 def check():
-	print("il rentre bien dans la boucle")
+	led_to_turn_on=[]
+	if subprocess.check_output("host balrog.lan", shell=True)!=b'balrog.lan has address 172.23.42.254\n':
+		#test for DNS
+		led_to_turn_on.append(4)
+
+	if os.system("ping 172.23.42.254 -c 1 -A")!=0 and os.system("ping 172.23.42.201")!=0:
+		#test if lan is up
+		led_to_turn_on.append(14)
+
+	if subprocess.check_output("iwlist wlan0 scan | grep UrLab", shell=True)!=b'                    ESSID:"UrLab"\n':
+		#test if UrLab SSID is available
+		led_to_turn_on.append(17)
+
+	if os.system("ping 172.23.218.248 -c 1 -A")!=0 and os.system("ping 1.1.1.1 -c 1 -A")!=0:
+		#test if internet&tinc are available
+		led_to_turn_on.append(18)
+
+	if len(led_to_turn_on)<1:
+		#then it's probably DHCP or the client that has a problem
+		led_to_turn_on.append(15)
+
+	for i in range(len(led_to_turn_on)):
+		gpio.output(led_to_turn_on[i],1)
+
 	while True:
 		if gpio.input(3)==0:
 			break
