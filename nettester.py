@@ -45,8 +45,14 @@ def animation(duration):
 	gpio.output(18,0)	
 	time.sleep(duration)
 
+def check():
+
 def main():
 	init()
+	while True:
+		if gpio.input(2) == 1:
+			check()
+		animation(0,1)
 
 
 if __name__ == '__main__':
