@@ -6,6 +6,7 @@ It was designed to run on a raspberry pi 3 B+.
 ## dependencies :
 * RPi.GPIO
 * python 3
+* nslookup
 
 ## GPIO pins layout :
 ![alt text](gpio-numbers-pi2.png "Raspi GPIO")
