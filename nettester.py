@@ -47,7 +47,7 @@ def animation(duration):
 
 def check():
 	led_to_turn_on=[]
-	if subprocess.check_output("host balrog.lan", shell=True)!=b'balrog.lan has address 172.23.42.254\n':
+	if os.system("nslookup delight.lan | grep 172.23.42.201") != 0 :
 		#test for DNS
 		led_to_turn_on.append(4)
 		animation(0.01)
