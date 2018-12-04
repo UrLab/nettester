@@ -54,7 +54,7 @@ def check():
 		#We can add DHCP if the dns crashes because it's the same program
 		led_to_turn_on.append(15)
 
-	if os.system("ping 172.23.42.254 -c 1 -A")!=0 and os.system("ping 172.23.42.201")!=0:
+	if os.system("ping 172.23.42.254 -c 1 -A")!=0 and os.system("ping 172.23.42.201 -c 1 -A")!=0:
 		#test if lan is up
 		led_to_turn_on.append(14)
 		animation(0.01)
