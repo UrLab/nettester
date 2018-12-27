@@ -13,10 +13,9 @@ def init(gpiout):
 	gpio.setup(3,gpio.IN)
 	for i in gpiout:
 		gpio.setup(i,gpio.OUT)
-	animation(0.1)
+	animation(0.1, gpiout)
 	for i in range(3):
 		animation(0, gpiout)
-		time.sleep(0.1)
 
 
 def animation(duration, gpiout):
