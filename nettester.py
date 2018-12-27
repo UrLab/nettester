@@ -19,7 +19,7 @@ def init(gpiout):
 		time.sleep(0.1)
 
 
-def animation(duration):
+def animation(duration, gpiout):
 	"""
 	This is the animation function. It takes the delay between each LED
 	and the list of GPIO output pins
@@ -30,11 +30,10 @@ def animation(duration):
 				gpio.output(j,i)
 				time.sleep(duration)
 	else:
-		for i in gpiout:
-			gpio.output(i, 1)
-		time.sleep(0.1)
-		for i in gpiout:
-			gpio.output(i, 0)
+		for i in range(1, -1 , -1):
+			for j in gpiout:
+				gpio.output(j, i)
+			time.sleep(0.1)
 
 
 def check():
@@ -62,7 +61,6 @@ def check():
 
 
 	for i in range(3):
-		time.sleep(0.1)
 		animation(0, gpiout)
 	for i in led_to_turn_on:
 		gpio.output(led_to_turn_on,1)
