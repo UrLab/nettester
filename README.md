@@ -8,6 +8,15 @@ It was designed to run on a raspberry pi 3 B+.
 * python 3
 * nslookup
 
+## How to run :
+Assuming that you have the permissions to access the raspberry pi's GPIO with your user :
+```
+virtualenv -p python3 ve3
+source ve3/bin/activate
+pip install -r requirements.txt
+python nettester.py
+```
+
 ## GPIO pins layout :
 ![alt text](gpio-numbers-pi2.png "Raspi GPIO")
 
