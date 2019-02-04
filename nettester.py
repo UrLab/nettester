@@ -79,7 +79,7 @@ def main():
 	init(gpiout)
 	while True:
 		if gpio.input(2) == 0:
-			check(gpiout)
+			check()
 		animation(0.1, gpiout)
 
 
