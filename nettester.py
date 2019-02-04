@@ -35,7 +35,7 @@ def animation(duration, gpiout):
 			time.sleep(0.1)
 
 
-def check():
+def check(gpiout):
 	"""
 	this functions simply runs the tests and tells the system wich LED
 	to turn on.
@@ -79,7 +79,7 @@ def main():
 	init(gpiout)
 	while True:
 		if gpio.input(2) == 0:
-			check()
+			check(gpiout)
 		animation(0.1, gpiout)
 
 
